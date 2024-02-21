@@ -30,7 +30,7 @@ Une fois dans votre espace de travail nouvellement créer, choisissez le persona
 
 ![Persona](/Pictures/002.jpg)
 
-cliquez sur le bouton "+ New " puis sur "KQL Database"
+Cliquez sur le bouton "+ New" puis sur "KQL Database"
 
 ![KQL](/Pictures/003.png)
 
@@ -38,9 +38,17 @@ Donnez un nom à votre base KQL et cliquez sur le bouton "Create"
 
 ![Create](/Pictures/004.png)
 
+Une fois votre base KQL créée, vous devriez obtenir une fenêtre similaire à celle-ci dessous :
 
+![Create](/Pictures/005.png)
 
+## Eventstream
 
+Depuis votre espace de travail, cliquez sur le bouton "+ New" puis sur "Eventstream".
+
+![Eventstream](/Pictures/006.png)
+
+# Azure
 # Azure logic apps
 
 Depuis le [portail Azure](https://portal.azure.com), allez dans votre service Azure logic app
