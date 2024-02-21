@@ -48,6 +48,20 @@ Depuis votre espace de travail, cliquez sur le bouton "+ New" puis sur "Eventstr
 
 ![Eventstream](/Pictures/006.png)
 
+Donnez un nom à votre "Eventstream" puis cliquez sur "Create".
+
+![Eventstream](/Pictures/007.png)
+
+Une fenêtre similaire à celle-ci dessous devrait s'ouvrir. Cliquez sur "New source" puis sur "Custom App"
+
+![Eventstream](/Pictures/008.png)
+
+Sur la droîte, un panneau devrait s'ouvrir. Donnez un nom à la source.
+
+![Eventstream](/Pictures/009.png)
+
+
+
 # Azure
 # Azure logic apps
 
