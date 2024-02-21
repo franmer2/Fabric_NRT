@@ -16,4 +16,31 @@ Ci-dessous une vue globale la solution
 
 
 
+# Microsoft Fabric
+## Base de données KQL
 
+
+Afin de stocker les données que nous allons récupérer et créer des rapports "presque temps réel", la base de données KQL est le candidat idéal ici.
+
+Pour commencer, connectez-vous sur le portail [Microsoft Fabric](https://fabric.microsoft.com).
+
+[Créez un nouvel espace de travail](https://learn.microsoft.com/fr-fr/fabric/get-started/create-workspaces) afin d'y déployer les différents services.
+
+Une fois dans votre espace de travail nouvellement créer, choisissez le persona "Real-Time Analytics"
+
+![Persona](/Pictures/002.jpg)
+
+cliquez sur le bouton "+ New " puis sur "KQL Database"
+
+![KQL](/Pictures/003.png)
+
+Donnez un nom à votre base KQL et cliquez sur le bouton "Create"
+
+![Create](/Pictures/004.png)
+
+
+
+
+# Azure logic apps
+
+Depuis le [portail Azure](https://portal.azure.com), allez dans votre service Azure logic app
