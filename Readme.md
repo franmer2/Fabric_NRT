@@ -56,10 +56,16 @@ Une fenêtre similaire à celle-ci dessous devrait s'ouvrir. Cliquez sur "New so
 
 ![Eventstream](/Pictures/008.png)
 
-Sur la droîte, un panneau devrait s'ouvrir. Donnez un nom à la source.
+Sur la droîte, un panneau devrait s'ouvrir. Donnez un nom à la source. Cliquez sur le bouton "Add"
 
 ![Eventstream](/Pictures/009.png)
 
+Une fois votre entrée créée, cliquez dessus. Dans la partie inférieure centrale de l'écran cliquez sur "Keys". Notez les valeurs pour les éleéments suivants, nous allons en avoir besoin ultérieurement :
+- Event hub name
+- Primary Key
+
+ 
+![Eventstream](/Pictures/010.png)
 
 
 # Azure
