@@ -68,6 +68,21 @@ Notez les valeurs pour les éleéments suivants, nous allons en avoir besoin ult
 - Event hub name
 - Primary Key
 
+
+Avant d'aller plus loin avec Microsoft Fabric Eventstream, nous devons envoyer des données dans le moteur d'ingestion afin d'otenir le schéma de données.
+
+Dans note exemple, nous alons déployer un Azure Logic Apps pour récupérer les données et les envoyer à Microsoft Fabric Eventstream. (il est bien entendu possible d'utiliser d'autres solutions comme les "Azure Functions").
+
+# Azure
+# Azure logic apps
+
+Depuis le [portail Azure](https://portal.azure.com), allez dans votre service Azure logic app.
+Dans le panneau de gauche, cliquez sur "Workflows" puis sur le bouton "Add", donnez un nom à votre Workflow et sélectionnez "Statefeul..." puis cliquez sur "Create".
+
+![Eventstream](/Pictures/015.png)
+
+
+# Microsoft Fabric (suite)
  
 ![Eventstream](/Pictures/010.png)
 
@@ -78,10 +93,19 @@ Cliquez sur "New destination", puis sur "KQL Database".
 
 ![Output](/Pictures/011.png)
 
-Choisissez "Direct ingestion" (Dans le cas où vous souhaiteriez faire des transformations avant l'envoie vers la destination, vou)
+Choisissez "Direct ingestion" (Dans le cas où vous souhaiteriez faire des transformations avant l'envoie vers la destination, vous avez la possibilité de choisir l'option "Event processing before ingestion"). Puis renseignez les informations de votre base KQL. Cliquez sur "Add and configure".
+
+![Output](/Pictures/012.png)
+
+Maintenant, nous allons définir vers quelle table envoyer les données. Cliquez sur "New table".
+
+![Picture](/Pictures/013.png)
+
+Donnez un nom à votre table puis cliquez sur "Next"
+
+![Picture](/Pictures/014.png)
 
 
-# Azure
-# Azure logic apps
 
-Depuis le [portail Azure](https://portal.azure.com), allez dans votre service Azure logic app
+
+
