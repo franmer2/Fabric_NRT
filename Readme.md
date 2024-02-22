@@ -79,12 +79,23 @@ Dans note exemple, nous alons déployer un Azure Logic Apps pour récupérer les
 Depuis le [portail Azure](https://portal.azure.com), allez dans votre service Azure logic app.
 Dans le panneau de gauche, cliquez sur "Workflows" puis sur le bouton "Add", donnez un nom à votre Workflow et sélectionnez "Statefeul..." puis cliquez sur "Create".
 
-![Eventstream](/Pictures/015.png)
+![LogicApps](/Pictures/015.png)
 
+Une fois votre "workflow" créé, cliquez dessus.
+
+![LogicApps](/Pictures/016.png)
+
+Cliquez sur "Designer" puis sur "Add a trigger"
+
+![LogicApps](/Pictures/017.png)
+
+Comme on désire récupérer les données toutes les 30 secondes, on va choisir un déclencheur de type récurrence. 
+
+![LogicApps](/Pictures/017.png)
 
 # Microsoft Fabric (suite)
  
-![Eventstream](/Pictures/010.png)
+![LogicApps](/Pictures/010.png)
 
 
 ### Création de la destination des évènements
