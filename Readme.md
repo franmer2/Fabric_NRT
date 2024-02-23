@@ -141,6 +141,10 @@ Cliquez sur le bouton "Save"
 
 ![LogicApps](/Pictures/029.png)
 
+Afin de vérifier que tout se passe bien, après avoir sauvegarder votre "workflow", cliquez sur "Overview" et vérifier que votre "workflow"se déclenche bien toutes les 30 secondes et qu'une erreur n ést repportée dans la colonne "Status.
+
+![LogicApps](/Pictures/030.png)
+
 
 # Microsoft Fabric (suite)
  
