@@ -121,7 +121,7 @@ Si aucune connexion existe, vous devriez avoir la fenêtre suivante :
 L'information concernant la "Connection string" se retrouve dans l'entrée de votre Microsoft Fabric Eventstream (l'information a été notée plus tôt dans cet article).
 Cliquez sur le bouton "Create New".
 
-La fenêtre suivante apparaît alors. Renseignez le nom de votre Eventstream dans le champ "Event Hub Name". Dans la liste déroulante "Advanced parameters" sélectionnez "Content"
+La fenêtre suivante apparaît alors. Renseignez le nom de votre Eventstream dans le champ "Event Hub Name". Dans la liste déroulante "Advanced parameters" sélectionnez "Content".
 
 ![LogicApps](/Pictures/025.png)
 
@@ -148,7 +148,10 @@ Afin de vérifier que tout se passe bien, après avoir sauvegarder votre "workfl
 
 # Microsoft Fabric (suite)
  
+Après avoir créer notre "workflow" Azure Logic Apps, retournez dans Microsoft Fabric, et plus précisement dans votre Eventstream. 
+Cliquez sur sur votre Evenstream afin de vérifier que les évènements arrivent correctement.
 
+![LogicApps](/Pictures/031.png)
 
 
 ### Création de la destination des évènements
@@ -157,7 +160,8 @@ Cliquez sur "New destination", puis sur "KQL Database".
 
 ![Output](/Pictures/011.png)
 
-Choisissez "Direct ingestion" (Dans le cas où vous souhaiteriez faire des transformations avant l'envoie vers la destination, vous avez la possibilité de choisir l'option "Event processing before ingestion"). Puis renseignez les informations de votre base KQL. Cliquez sur "Add and configure".
+Choisissez "Direct ingestion" (Dans le cas où vous souhaiteriez faire des transformations avant l'envoie vers la destination, vous avez la possibilité de choisir l'option "Event processing before ingestion"). 
+Puis renseignez les informations de votre base KQL. Cliquez sur "Add and configure".
 
 ![Output](/Pictures/012.png)
 
@@ -165,11 +169,19 @@ Maintenant, nous allons définir vers quelle table envoyer les données. Cliquez
 
 ![Picture](/Pictures/013.png)
 
-Donnez un nom à votre table puis cliquez sur "Next"
+Donnez un nom à votre table puis cliquez sur "Next".
 
 ![Picture](/Pictures/014.png)
 
 
+Dans l'étape "Inspect the data", l'assistant devrait pouvoir retrouver un échantillon des données, Cliquez sur "Finish".
 
+![Picture](/Pictures/032.png)
 
+Puis durant l étape "Summary", cliquez sur "Close".
 
+![Picture](/Pictures/033.png)
+
+Votre process d'ingestion est maintenant prêt !
+
+![Picture](/Pictures/034.png)
