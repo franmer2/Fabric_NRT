@@ -309,3 +309,44 @@ Si tout va bien vous devriez obtenir un résultat similaire à celui ci-dessous 
 
 ![Picture](/Pictures/043.png)
 
+### Update policy
+
+Nous allons maintenant utiliser la fonctionnalité "Update Policy" afin d'éxécuter la fonction lorsque un évènement arrivera dans la table "FranmerBronze".
+Etant donnée que le but de cette fonction est de rendre les données facilement exploitable pour l'analyse ou la création de rapports, nous allons conserver le résultat de la fonction dans une seconde table que j'appellerai "FranmerGold".
+
+Nous allons donc créer une nouvelle table avec le schéma correspondant à la sortie de fla fonction précédement créée. 
+Cliquez sur le bouton "+" afin de créer une nouvelle page.
+
+![Picture](/Pictures/044.png)
+
+copier le code suivant et exécutez le en cliquant sur le bouton "Run" (Dans le cas ou le bouton Run est grisé, changez de fenêtre en restant au sein de Microsoft Fabric en allant dans un autre artefact, puis revenez dans votre Queryset):
+
+```java
+//Create target table with schema only
+.set-or-append FranmerGold <| FlattenBctJson | limit 0
+
+```
+
+![Picture](/Pictures/045.png)
+
+Vous deviez obtenir une seconde table comme illustré ci-dessous :
+
+![Picture](/Pictures/046.png)
+
+Maintenant nous sommes prêt pour créer notre "Update Policy".
+Copiez le code ci-dessous dans une nouvelle fenêtre et exécutez le code : 
+
+```java
+//Create a table policy
+.alter table FranmerGold policy update "[{\"IsEnabled\":true,\"Source\":\"FranmerBronze\",\"Query\":\"FlattenBctJson\",\"IsTransactional\":false,\"PropagateIngestionProperties\":true,\"ManagedIdentity\":null}]"
+
+```
+
+![Picture](/Pictures/047.png)
+
+Si tout va bien vous devriez obtenir un résultat similaire :
+
+
+![Picture](/Pictures/048.png)
+
+
