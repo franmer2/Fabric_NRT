@@ -349,4 +349,21 @@ Si tout va bien vous devriez obtenir un résultat similaire :
 
 ![Picture](/Pictures/048.png)
 
+Revenez dans votre base de donnez KQL (Vous pouvez utiliser les "switchs" situés sur la gauche pour changer rapidement d'artefact). Vous devriez voir votre nouvelle table (cliquez sur "Refresh" si ce n ést pas le cas).
+Faites une requêtre sur votre nouvelle table afin de voir les nouvelles données arriver dedans.
 
+![Picture](/Pictures/049.png)
+
+Maintenant que les données arrivent en quasi temps réel formattée à notre convenance, nous allons créer un rapport Power BI directement à aprtir de cette table.
+Cliquez sur les 3 petits points à droite du nom de votre table et sélectionnez "Build Power BI Report".
+
+![Picture](/Pictures/050.png)
+
+L'éditeur de rapport Power BI s'ouvre dans une autre fenêtre. Vous pouvez maintenant créer un rapport directement à partir des colonnes de la table. Sur la droite, vous y trouverez toutes les colonnes utiles pour contruire votre nouveau rapport.
+
+![Picture](/Pictures/051.png)
+
+Pour que le rapport réagisse en quasi temps réel, N'OUBLIEZ PAS de paramétrer le rapport afin qu'il se mette à jour automatiquement suivant la fréquence désirée.
+Cliquez sur un espace **vide** du rapport. Cliquez ensuite sur l 'icône "Format" puis activez "Page Refresh". Définissez la période de mise à jour automatique. Ici je choisi 30 secondes.
+
+![Picture](/Pictures/052.png)
