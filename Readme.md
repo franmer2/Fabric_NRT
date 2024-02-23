@@ -68,6 +68,7 @@ Notez les valeurs pour les éleéments suivants, nous allons en avoir besoin ult
 - Event hub name
 - Primary Key
 
+![Eventstream](/Pictures/010.png)
 
 Avant d'aller plus loin avec Microsoft Fabric Eventstream, nous devons envoyer des données dans le moteur d'ingestion afin d'otenir le schéma de données.
 
@@ -90,12 +91,47 @@ Cliquez sur "Designer" puis sur "Add a trigger"
 ![LogicApps](/Pictures/017.png)
 
 Comme on désire récupérer les données toutes les 30 secondes, on va choisir un déclencheur de type récurrence. 
+Dans la zone de recherche, entrez "recurrence", puis sélectionnez le déclecheur "Schedule / Recurrence".
 
-![LogicApps](/Pictures/017.png)
+![LogicApps](/Pictures/019.png)
+
+Définissez les paramètres de votre déclencheur. Ici je demande un déclenchement toutes les 30 secondes.
+
+![LogicApps](/Pictures/020.png)
+
+Sous le déclencheur "Recurrence", cliquez sur le signe "+", cherchez avec le mot clef "https" puis choissisez l'action "HTTP"
+
+![LogicApps](/Pictures/021.png)
+
+Dans l'onglet "Parameters", entrez les valeurs suivantes pour les champs :
+- **URI** : https://bct.tmix.se/gtfs-realtime/vehicleupdates.js?operatorIds=12
+- **Method** : GET
+
+![LogicApps](/Pictures/022.png)
+
+
+En dessous de l'action "HTTP", cliquez sur le signe "+", recherchez "Event hub" et sélectionnez "Event Hubs / Sent **E**vent"
+
+![LogicApps](/Pictures/023.png)
+
+Si aucune connexion existe, vous devriez avoir la fenêtre suivante :
+
+![LogicApps](/Pictures/024.png)
+
+L'information concernant la "Connection string" se retrouve dans l'entrée de votre Microsoft Fabric Eventstream (l'information a été notée plus tôt dans cet article).
+Cliquez sur le bouton "Create New".
+
+La fenêtre suivante apparaît alors. Renseignez le nom de votre Eventstream dans le champ "Event Hub Name". Dans la liste déroulante "Advanced parameters" sélectionnez "Content"
+
+![LogicApps](/Pictures/025.png)
+
+
+
+
 
 # Microsoft Fabric (suite)
  
-![LogicApps](/Pictures/010.png)
+
 
 
 ### Création de la destination des évènements
