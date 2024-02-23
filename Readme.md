@@ -219,3 +219,93 @@ Vous devriez avoir une fenêtre similaire à celle ci-dessous :
 
 ![Picture](/Pictures/040.png)
 
+
+Effacez les exemples de script dans la fenêtre principale puis copiez le code ci-dessous :
+
+```java
+
+.create-or-alter function with (docstring="A function to flatten the BCT JSON", folder="Transformation functions") FlattenBctJson(){
+FranmerBronze
+| extend MyIngestionTime = ingestion_time()
+| extend gtfs_realtime_version    = toreal(header.gtfs_realtime_version)
+        ,incrementality           = tostring(header.incrementality)
+        ,incrementalitySpecified  = tobool(header.incrementalitySpecified)
+        // Had to rename the next two fields due to duplicate names further down in the JSON
+        // Note how we are converting the unix timestamp on the fly
+        ,HeaderTimestamp          = unixtime_seconds_todatetime(tolong(header.timestamp)) 
+        ,HeadertimestampSpecified = tobool(header.timestampSpecified) 
+        // 
+| mv-expand entity 
+| extend id	                    = toint(entity.id)
+        ,is_deletedSpecified	= tobool(entity.is_deletedSpecified)
+        ,vehicle		        = entity.vehicle
+        ,Alert                  = entity.alert
+| project-away entity, header // cleaning up to free memory
+| extend congestion_level               = tostring(vehicle.congestion_level)
+        ,congestion_levelSpecified      = tobool(vehicle.congestion_levelSpecified)
+        ,consist                        = vehicle.consist // This is an array but is empty now. We should ask if this need to be expanded eventually
+        ,current_status                 = tostring(vehicle.current_status)
+        ,current_statusSpecified        = tobool(vehicle.current_statusSpecified)
+        ,current_stop_sequence          = toint(vehicle.current_stop_sequence)
+        ,current_stop_sequenceSpecified = tobool(vehicle.current_stop_sequenceSpecified)
+        ,occupancy_statusSpecified      = tobool(vehicle.occupancy_statusSpecified)
+        ,position                       = vehicle.position
+        ,stop_id                        = tolong(vehicle.stop_id)
+        ,stop_idSpecified               = tobool(vehicle.stop_idSpecified)
+        ,timestamp                      = unixtime_seconds_todatetime(tolong(vehicle.timestamp))
+        ,timestampSpecified             = tobool(vehicle.timestampSpecified)
+        ,trip                           = vehicle.trip
+| project-away vehicle // cleaning up to free memory
+// Unpacking the "position bag"
+| extend Latitude           = toreal(position.latitude)
+        ,Longitude          = toreal(position.longitude)
+        ,Bearing            = toreal(position.bearing)
+        ,BearingSpecified   = tobool(position.bearingSpecified)
+        ,Odometer           = toreal(position.odometer)
+        ,odometerSpecified  = tobool(position.odometerSpecified)
+        ,speed              = toreal(position.speed)
+        ,speedSpecified     = tobool(position.speedSpecified)
+| project-away position // cleaning up to free memory
+// Unpacking the Trip bag
+| extend  direction_id                   = toint(trip.direction_id)
+         ,direction_idSpecified          = tobool(trip.direction_idSpecified)
+         ,route_id                       = tostring(trip.route_id)
+         ,route_idSpecified              = tobool(trip.route_idSpecified)
+         ,schedule_relationship          = tostring(trip.schedule_relationship)
+         ,schedule_relationshipSpecified = tobool(trip.schedule_relationshipSpecified)
+         ,start_date                     = tostring(trip.start_date)
+         ,start_dateSpecified            = tobool(trip.start_dateSpecified)
+         ,start_time                     = tostring(trip.start_time) // Not sure why they separate the two... will create new column to recombine
+         ,start_timeSpecified            = tobool(trip.start_timeSpecified)
+         ,trip_id                        = tostring(trip.trip_id)
+         ,trip_idSpecified               = tobool(trip.trip_idSpecified)
+| project-away trip // cleaning up to free memory        
+// Now we reshuffle the ugly date and recombine the parts to build a proper ISO-8601 date
+// Note how Kusto converts it to UTC as God intended!         
+| extend TripStartDate = todatetime(
+                               strcat(
+                                        substring(start_date,0,4)
+                                       ,'-'
+                                       ,substring(start_date,4,2)
+                                       ,'-'
+                                       ,substring(start_date,6,2)
+                                       , ' '
+                                       ,start_time 
+                                      )
+                                   )
+}
+
+```
+
+Vous devriez obtenir quelque chose de similaire à l écran ci-dessous :
+![Picture](/Pictures/041.png)
+
+Ce script va créer une fonction dont le nom sera "FlattenBCTJson".
+Cliquez sur le bouton "Run".
+
+![Picture](/Pictures/042.png)
+
+Si tout va bien vous devriez obtenir un résultat similaire à celui ci-dessous :
+
+![Picture](/Pictures/043.png)
+
