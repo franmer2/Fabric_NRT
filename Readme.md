@@ -185,3 +185,37 @@ Puis durant l étape "Summary", cliquez sur "Close".
 Votre process d'ingestion est maintenant prêt !
 
 ![Picture](/Pictures/034.png)
+
+## KQL Database
+
+Si tout va bien, votre table à du être créée dans votre base KQL. Ci dessous on peut voir ma table "FranmerBronze". Cliquez sur les 3 petits points à droite de la table afin d'aller chercher la commande "Show any 100 records"
+
+![Picture](/Pictures/035.png)
+
+La fenêtre "Explore your data" s'ouvre et vous donne un apreçu des données qui arrivent dans votre table.
+
+![Picture](/Pictures/036.png)
+
+En l'état, les données mne sont pas facilement exploitable pour la création d'un rapport presque temps réel. C'est ici que le langage Kusto entre en scène.
+
+### Requête Kusto (KQL Queryset)
+
+Grâce au langage Kusto, il est relativement assez simpe de créer un script qui permet de rendre les données plus facilement exploitable. 
+Nous allons utiliser la fonctionnalité "KQL Queryset" afin d'écrire notre requête.
+
+Depuis votre espace de travail, cliquez sur le bouton "New"puis sur le bouton "KQL Queryset".
+
+![Picture](/Pictures/037.png)
+
+Donnez un nom à votre "Queryset" et cliquez sur "Create".
+
+![Picture](/Pictures/038.png)
+
+Sélectionnez votre base KQL et cliquez sur le bouton "Connect".
+
+![Picture](/Pictures/039.png)
+
+Vous devriez avoir une fenêtre similaire à celle ci-dessous :
+
+![Picture](/Pictures/040.png)
+
