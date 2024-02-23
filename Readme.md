@@ -363,7 +363,7 @@ L'éditeur de rapport Power BI s'ouvre dans une autre fenêtre. Vous pouvez main
 
 ![Picture](/Pictures/051.png)
 
-Pour que le rapport réagisse en quasi temps réel, N'OUBLIEZ PAS de paramétrer le rapport afin qu'il se mette à jour automatiquement suivant la fréquence désirée.
+Pour que le rapport réagisse en quasi temps réel, **N'OUBLIEZ PAS** de paramétrer le rapport afin qu'il se mette à jour automatiquement suivant la fréquence désirée.
 Cliquez sur un espace **vide** du rapport. Cliquez ensuite sur l 'icône "Format" puis activez "Page Refresh". Définissez la période de mise à jour automatique. Ici je choisi 30 secondes.
 
 ![Picture](/Pictures/052.png)
