@@ -125,8 +125,21 @@ La fenêtre suivante apparaît alors. Renseignez le nom de votre Eventstream dan
 
 ![LogicApps](/Pictures/025.png)
 
+Cliquez dans le champ "Content" afin de faire apparaîte la petite bulle bleue. Cliquez sur l'éclair. 
 
+![LogicApps](/Pictures/026.png)
 
+Puis sous l'action "HTTP" sélectionnez "Body".
+
+![LogicApps](/Pictures/027.png)
+
+Vous devriez avoir une fenêtre similaire à celle ci-dessous :
+
+![LogicApps](/Pictures/028.png)
+
+Cliquez sur le bouton "Save"
+
+![LogicApps](/Pictures/029.png)
 
 
 # Microsoft Fabric (suite)
