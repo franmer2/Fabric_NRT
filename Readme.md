@@ -141,7 +141,7 @@ Cliquez sur le bouton "Save"
 
 ![LogicApps](/Pictures/029.png)
 
-Afin de vérifier que tout se passe bien, après avoir sauvegarder votre "workflow", cliquez sur "Overview" et vérifier que votre "workflow"se déclenche bien toutes les 30 secondes et qu'une erreur n ést repportée dans la colonne "Status.
+Afin de vérifier que tout se passe bien, après avoir sauvegardé votre "workflow", cliquez sur "Overview" et vérifiez que votre "workflow" se déclenche bien toutes les 30 secondes et qu'aucune erreur n'a été repportée dans la colonne "Status".
 
 ![LogicApps](/Pictures/030.png)
 
@@ -188,7 +188,7 @@ Votre process d'ingestion est maintenant prêt !
 
 ## KQL Database
 
-Si tout va bien, votre table à du être créée dans votre base KQL. Ci dessous on peut voir ma table "FranmerBronze". Cliquez sur les 3 petits points à droite de la table afin d'aller chercher la commande "Show any 100 records"
+Si tout va bien, votre table a du être créée dans votre base KQL. Ci-dessous on peut voir ma table "FranmerBronze". Cliquez sur les 3 petits points à droite de la table afin d'aller chercher la commande "Show any 100 records"
 
 ![Picture](/Pictures/035.png)
 
@@ -311,15 +311,17 @@ Si tout va bien vous devriez obtenir un résultat similaire à celui ci-dessous 
 
 ### Update policy
 
-Nous allons maintenant utiliser la fonctionnalité "Update Policy" afin d'éxécuter la fonction lorsque un évènement arrivera dans la table "FranmerBronze".
-Etant donnée que le but de cette fonction est de rendre les données facilement exploitable pour l'analyse ou la création de rapports, nous allons conserver le résultat de la fonction dans une seconde table que j'appellerai "FranmerGold".
+Nous allons maintenant utiliser la fonctionnalité "Update Policy" afin d'exécuter la fonction lorsqu’un évènement arrivera dans la table "FranmerBronze".
+Etant donnée que le but de cette fonction est de rendre les données facilement exploitables pour l'analyse ou la création de rapports, nous allons conserver le résultat de la fonction dans une seconde table que j'appellerai "FranmerGold".
 
-Nous allons donc créer une nouvelle table avec le schéma correspondant à la sortie de fla fonction précédement créée. 
+Nous allons donc créer une nouvelle table avec le schéma correspondant à la sortie de fla fonction précédemment créée. 
 Cliquez sur le bouton "+" afin de créer une nouvelle page.
 
 ![Picture](/Pictures/044.png)
 
-copier le code suivant et exécutez le en cliquant sur le bouton "Run" (Dans le cas ou le bouton Run est grisé, changez de fenêtre en restant au sein de Microsoft Fabric en allant dans un autre artefact, puis revenez dans votre Queryset):
+Copiez le code suivant et exécutez le en cliquant sur le bouton "Run" (Dans le cas où le bouton Run est grisé, changez de fenêtre en restant au sein de Microsoft Fabric en allant dans un autre artefact, puis revenez dans votre Queryset):
+
+
 
 ```java
 //Create target table with schema only
