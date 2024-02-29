@@ -1,6 +1,6 @@
-Microsoft Fabric propose une suite d'outils très pratiques pour accélérer la mise en place de project "presque temps réel"
+Microsoft Fabric propose une suite d'outils très pratiques pour accélérer la mise en place de project "quasi temps réel"
 
-Dans cet article, nous allons voir un exemple d'implémentation de ces outils pour mettre en place un rapport Power BI "presque temps réel" à partir des données de ce [site web](https://bctransit.com/open-data). Plus précismenent nous allons utiliser les données se trouvant [ici](https://bct.tmix.se/gtfs-realtime/vehicleupdates.js?operatorIds=12).
+Dans cet article, nous allons voir un exemple d'implémentation de ces outils pour mettre en place un rapport Power BI "quasi temps réel" à partir des données de ce [site web](https://bctransit.com/open-data). Plus précismenent nous allons utiliser les données se trouvant [ici](https://bct.tmix.se/gtfs-realtime/vehicleupdates.js?operatorIds=12).
 
 Ci-dessous une vue globale la solution
 
@@ -20,7 +20,7 @@ Ci-dessous une vue globale la solution
 ## Base de données KQL
 
 
-Afin de stocker les données que nous allons récupérer et créer des rapports "presque temps réel", la base de données KQL est le candidat idéal ici.
+Afin de stocker les données que nous allons récupérer et créer des rapports "quasi temps réel", la base de données KQL est le candidat idéal ici.
 
 Pour commencer, connectez-vous sur le portail [Microsoft Fabric](https://fabric.microsoft.com).
 
@@ -196,7 +196,7 @@ La fenêtre "Explore your data" s'ouvre et vous donne un apreçu des données qu
 
 ![Picture](/Pictures/036.png)
 
-En l'état, les données mne sont pas facilement exploitable pour la création d'un rapport presque temps réel. C'est ici que le langage Kusto entre en scène.
+En l'état, les données mne sont pas facilement exploitable pour la création d'un rapport "quasi temps réel". C'est ici que le langage Kusto entre en scène.
 
 ### Requête Kusto (KQL Queryset)
 
@@ -364,6 +364,18 @@ L'éditeur de rapport Power BI s'ouvre dans une autre fenêtre. Vous pouvez main
 ![Picture](/Pictures/051.png)
 
 Pour que le rapport réagisse en quasi temps réel, **N'OUBLIEZ PAS** de paramétrer le rapport afin qu'il se mette à jour automatiquement suivant la fréquence désirée.
-Cliquez sur un espace **vide** du rapport. Cliquez ensuite sur l 'icône "Format" puis activez "Page Refresh". Définissez la période de mise à jour automatique. Ici je choisi 30 secondes.
+Cliquez sur un espace **vide** du rapport. Cliquez ensuite sur l'icône "Format" puis activez "Page Refresh". Définissez la période de mise à jour automatique. Ici je choisi 30 secondes.
 
 ![Picture](/Pictures/052.png)
+
+Il ne vous reste plus qu'a vous construire un beau rapport quasi temps réel !
+
+# Astuce Kusto
+
+Mon collègue [Gilles L'herault](https://www.linkedin.com/in/gilleslherault/), beau jeune homme devant l'éternel, m'a suggéré l'astuce suivante permettant de générer un script permetant de reconstruire complètement la base KQL dans un autre environnement. Utilisez simplement la commande suivante:
+
+```java
+.show database YourKqlDbName schema as csl script
+```
+
+![Picture](/Pictures/053.png)
