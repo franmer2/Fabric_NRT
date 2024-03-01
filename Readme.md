@@ -69,7 +69,7 @@ Notez les valeurs pour les éléments suivants, nous allons en avoir besoin ult�
 
 Avant d'aller plus loin avec Microsoft Fabric Eventstream, nous devons envoyer des données dans le moteur d'ingestion afin d'obtenir le schéma de données.
 
-Dans notre exemple, nous allons déployer un Azure Logic Apps pour récupérer les données et les envoyer à Microsoft Fabric Eventstream. (il est bien entendu possible d'utiliser d'autres solutions comme les "Azure Functions").
+Dans notre exemple, nous allons déployer un Azure Logic Apps pour récupérer les données et les envoyer à Microsoft Fabric Eventstream. (Il est bien entendu possible d'utiliser d'autres solutions comme les "Azure Functions").
 
 # Azure
 # Azure logic apps
@@ -171,7 +171,7 @@ Dans l'étape "Inspect the data", l'assistant devrait pouvoir retrouver un écha
 
 ![Picture](/Pictures/032.png)
 
-Puis durant l étape "Summary", cliquez sur "Close".
+Puis durant l'étape "Summary", cliquez sur "Close".
 
 ![Picture](/Pictures/033.png)
 
@@ -193,7 +193,7 @@ En l'état, les données ne sont pas facilement exploitables pour la création d
 
 ### Requête Kusto (KQL Queryset)
 
-Grâce au langage Kusto, il est relativement assez simpe de créer un script qui permet de rendre les données plus facilement exploitables. 
+Grâce au langage Kusto, il est relativement assez simple de créer un script qui permet de rendre les données plus facilement exploitables. 
 Nous allons utiliser la fonctionnalité "KQL Queryset" afin d'écrire notre requête.
 
 Depuis votre espace de travail, cliquez sur le bouton "New" puis sur le bouton "KQL Queryset".
@@ -360,11 +360,11 @@ Cliquez sur un espace **vide** du rapport. Cliquez ensuite sur l'icône "Format"
 
 ![Picture](/Pictures/052.png)
 
-Il ne vous reste plus qu'a vous construire un beau rapport quasi temps réel !
+Il ne vous reste plus qu'à vous construire un beau rapport quasi temps réel !
 
 # Astuce Kusto
 
-Mon collègue [Gilles L'herault](https://www.linkedin.com/in/gilleslherault/), beau jeune homme devant l'éternel, m'a suggéré l'astuce suivante permettant de générer un script permettant de reconstruire complètement la base KQL dans un autre environnement. Utilisez simplement la commande suivante:
+Mon collègue [Gilles L'herault](https://www.linkedin.com/in/gilleslherault/), beau jeune homme devant l'éternel, m'a suggéré l'astuce suivante permettant de générer un script permettant de reconstruire complètement la base KQL dans un autre environnement. Utilisez simplement la commande suivante :
 
 ```java
 .show database YourKqlDbName schema as csl script
